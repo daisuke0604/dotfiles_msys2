@@ -201,6 +201,11 @@ export EDITOR=vim
 # nodist
 export NODIST_X64=1
 export NODIST_PREFIX='C:\Program Files (x86)\Nodist'
-export PATH='C:\Program Files (x86)\Nodist':$PATH
+export PATH='C:\Program Files (x86)\Nodist\bin':$PATH
 NODIST_BIN_DIR__=$(echo "$NODIST_PREFIX" | sed -e 's,\\,/,g')/bin; if [ -f "$NODIST_BIN_DIR__/nodist.sh" ]; then . "$NODIST_BIN_DIR__/nodist.sh"; fi; unset NODIST_BIN_DIR__;
+
+# enhancd
+export ENHANCD_AUTOADD=false
+export ENHANCD_DISABLE_DOT=1
+source $HOME/src/enhancd/init.sh
 
