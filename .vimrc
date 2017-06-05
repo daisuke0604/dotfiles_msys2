@@ -18,6 +18,7 @@ if dein#load_state('/home/yamamoto/.vim/bundles')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('itchyny/lightline.vim')
   call dein#add('othree/yajs.vim')
+  call dein#add('tpope/vim-fugitive')
 
   " Required:
   call dein#end()
@@ -35,6 +36,8 @@ endif
 
 "構文ごとに色分けを行う
 syntax on
+"256color terminal
+set t_Co=256
 "カラースキーマ
 colorscheme xoria256
 
@@ -106,6 +109,17 @@ let g:netrw_list_hide='\.o$,\.d$,GTAGS,GPATH,GRTAGS,GSYMS'
 
 " Turn off paste mode when leaving insert
 autocmd InsertLeave * set nopaste
+
+" fugitive
+nnoremap [fugitive] <Nop>
+nmap <space>g [fugitive]
+nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
+nnoremap <silent> [fugitive]a :Gwrite<CR>
+nnoremap <silent> [fugitive]c :Gcommit<CR>
+nnoremap <silent> [fugitive]b :Gblame<CR>
+nnoremap <silent> [fugitive]d :Gdiff<CR>
+nnoremap <silent> [fugitive]m :Gmerge<CR>
+set diffopt+=vertical
 
 "lightline
 let g:lightline = {
